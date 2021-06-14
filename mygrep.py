@@ -50,13 +50,14 @@ if len(sys.argv) > 1:
       file = f.read().split("\n")
 
     for line in file:
+      if b2:
+        textAfter += line+"\n"
       if b:
         block += line+"\n"
         if rx[1] != "" and re.search(rx[1],line) is not None:
           b2 = True
           b = False
-      if b2:
-        textAfter += line+"\n"
+
       if rx[0] != "" and re.search(rx[0],line) is not None and b1:
         block += line+"\n"
         b1 = False
